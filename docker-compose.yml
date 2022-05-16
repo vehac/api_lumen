@@ -1,0 +1,38 @@
+version : "3" 
+services :
+    webserver :
+        build :
+            context : ./docker/php
+            dockerfile : Dockerfile 
+        container_name : php_lumen
+        ports : 
+            - 8482:80
+        networks :
+            backend-net :
+                ipv4_address : 12.23.22.19
+        links :
+            - database
+        depends_on :
+            - database
+        volumes :
+            - .:/var/www/html
+        command : sh /var/www/html/docker/php/init.sh
+    database :
+        container_name : "database_lumen"
+        image : mariadb
+        ports :
+            - "9407:3306"
+        networks :
+            backend-net :
+                ipv4_address : 12.23.22.18
+        environment :
+            - MYSQL_ROOT_PASSWORD=3*DB6lumen9
+            - MYSQL_DATABASE=db_lumen
+
+networks :
+    backend-net :
+        driver : bridge
+        ipam :
+            driver : default
+            config :
+                - subnet : 12.23.22.0/26

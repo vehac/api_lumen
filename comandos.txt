@@ -1,0 +1,21 @@
+Comandos que se usaron para crear el proyecto:
+
+composer create-project --prefer-dist laravel/lumen api_lumen
+composer require --dev flipbox/lumen-generator
+composer require firebase/php-jwt
+
+php artisan make:migration clients --create=clients
+php artisan migrate
+php artisan migrate:rollback
+
+php artisan make:controller ClientController
+php artisan make:model Client
+
+php artisan make:controller ClientController --model=Models/Client
+
+php artisan make:controller AuthController
+
+php artisan make:middleware AuthMiddleware
+
+sudo chown user:user file.ext
+sudo chmod 664 file.ext

@@ -1,0 +1,26 @@
+public/upload/
+composer.lock
+
+# OS
+.DS_Store
+
+# IDE
+#-------------------------
+/nbproject/
+.idea/*
+.vscode/*
+.project
+.buildpath
+
+# Sublime Text cache files
+*.tmlanguage.cache
+*.tmPreferences.cache
+*.stTheme.cache
+*.sublime-workspace
+*.sublime-project
+
+/vendor
+Homestead.json
+Homestead.yaml
+.env
+.phpunit.result.cache
